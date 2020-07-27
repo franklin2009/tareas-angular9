@@ -1,0 +1,55 @@
+<button type="button" class="btn btn-primary rounded-circle btn-xl shadow  btn-float"  (click)="openModal(tpUsuario)" ><i class="fa fa-plus"></i></button> 
+
+
+<h1>Usuarios</h1>
+<hr />
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Gravatar</th>
+        <th>Nombre</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td><img src="https://www.gravatar.com/avatar/{{ usuario.avatar }}&s=40" alt="{{ usuario.nombre }}"  class="rounded-circle avatar"/></td>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.email }}</td>
+      </tr>
+    </tbody>
+</table>
+
+
+
+<ng-template #tpUsuario>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Agregar Usuario</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+      <form autocomplete="off" #usuarioForm="ngForm">
+          <div class="form-group">
+            <label for="nombre">Nombre *</label>
+            <input type="text" class="form-control" id="nombre"  name="nombre" [(ngModel)]="usuario.nombre" #nombre="ngModel" required>
+            <span [hidden]="nombre.valid || nombre.pristine"  class="text-danger small float-right">  Nombre requerido </span>
+          </div>
+          <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="usuario.email" #email="ngModel" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+              <span [hidden]="email.valid || email.pristine"  class="text-danger small float-right">  Email requerido, con formato **@**.** </span>
+          </div>
+      </form>	
+  
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cerrar</button>
+      <button type="button" class="btn btn-primary"  (click)="guardar()" [disabled]="!usuarioForm.form.valid" >Guardar Cambios</button>
+    </div>
+  </ng-template>
+
+<app-loading [showLoad]="isLoad"></app-loading>

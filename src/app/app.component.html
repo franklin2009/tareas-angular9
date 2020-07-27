@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Tareas - Test</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+      <a class="nav-link" routerLink="/tarea" >Tareas <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" routerLink="/usuario">Usuarios</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" routerLink="/acerca">Acerca</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" routerLink="/contacto">Contacto</a>
+      </li>
+    </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+	<main role="main">
+    <div class="jumbotron">
+		  <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+
+<footer class="footer">
+    <div class="container">  <p class="text-muted">© 2020 Company, Inc</p> </div>
+</footer>
