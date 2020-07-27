@@ -9,6 +9,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 import { AppComponent } from './app.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -40,7 +41,8 @@ import {  UsuarioService } from './services/usuarios';
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   providers: [TareaService,UsuarioService],
   bootstrap: [AppComponent]
